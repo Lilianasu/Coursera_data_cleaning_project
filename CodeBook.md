@@ -1,19 +1,22 @@
 # CodeBook.md
-Coursera´s Getting and Cleaning Data Course 
+Coursera´s Getting and Cleaning Data Course
+
 Final Project CodeBook
+
 Liliana Hirugame
+
 September, 2016
 
 
 ## 0. Get the land ready
-### 0.1 Libraries
+#### 0.1 Packages and libraries
 ```
 install.packages("downloader")
 library(downloader)
 library(dplyr)    #
 library(reshape2) # melt and cast data frames
 ```
-### 0.2 Download and unzip files
+#### 0.2 Set working directory. Download and unzip files in "wearable" folder
 ```
 if(!exists("~/datacleaningfinalproject")){dir.create("~/datacleaningfinalproject")}
 setwd("~/datacleaningfinalproject")
@@ -22,9 +25,9 @@ download(url = myurl, destfile="./wearable.zip")
 unzip("./wearable.zip")
 ```
 
-## 1. Merges the training and the test sets to create one data set.
+## 1. Merge the training and the test sets to create one data set.
+#### 1.1 Reading the Test and Train sets
 
-### 1.1 Reading the Test and Train sets
 ```
 testset <- read.table("./wearable/test/X_test.txt", stringsAsFactors = F)
 trainset <- read.table("./wearable/train/X_train.txt", stringsAsFactors = F)
