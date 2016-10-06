@@ -1,14 +1,29 @@
-# CodeBook.md
+# Readme file
 Coursera´s Getting and Cleaning Data Course
 
-Final Project CodeBook
+Final Project
 
 Liliana Hirugame
 
 September, 2016
 
+## Description of the project  :pushpin:
 
-## 0. Get the land ready
+The components of this Course's Final Project are the next
+
+1) finaltidydataset.csv 
+  A tidy data set 
+2) A link to a Github repository with your script for performing the analysis
+3) CodeBook.md
+   A code book that describes the variables, the data, and any transformations or work performed to clean up the data. 
+
+The intention of the run_analysis.R script is to prepare tidy data that can be used for later analysis.
+
+The data used is from the site: 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+
+## 0. Get the land ready  :green_apple:
 0.1 Install packages and libraries
 ```
 install.packages("downloader")
@@ -86,3 +101,10 @@ testandtrainset <- mutate(testandtrainset, activity=activities[,1], subject=subj
 ttmolten <- melt(testandtrainset, id=c("activity", "subject"), na.rm = TRUE)
 finaltable <- dcast(ttmolten, formula = activity + subject ~ variable, mean)
 ```
+
+
+## References   :books:
+
+
+Basic writing and formatting syntax on GitHub
+https://help.github.com/articles/basic-writing-and-formatting-syntax/
