@@ -66,4 +66,4 @@ ttmolten <- melt(testandtrainset, id=c("activity", "subject"), na.rm = TRUE)
 finaltable <- dcast(ttmolten, formula = activity + subject ~ variable, mean)
 
 ## Save data into .csv file
-write.table(finaltable, file="finaltidydataset.csv")
+write.table(finaltable, file="finaltidydataset.txt", row.names = F)
