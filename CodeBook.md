@@ -1,4 +1,4 @@
-## Structure of the "finaltable" dataset
+## Structure of the 'wearabletidydataset.csv'
 This dataframe is composed by 68 variables (columns) and 180 observations (rows)
 
 From the 68 variables, 2 are ID variables (activity & subject) and 66 are measurement variables.
