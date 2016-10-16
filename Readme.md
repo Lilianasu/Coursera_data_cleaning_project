@@ -18,10 +18,15 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 The components of this Course's Final Project are as follows.
 
 1) CodeBook.md
+
    A code book that describes the variables, the structure of the finaltidydataset.csv, and any transformations or work performed to clean up the data. 
+
 2) finaltidydataset.csv 
+
   A tidy data set as described in the CodeBook, in csv format.
+
 3) run_analysis.R 
+
   A script for performing the analysis.
 
 ## References   :books:
