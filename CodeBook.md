@@ -234,5 +234,5 @@ finaltable <- dcast(ttmolten, formula = activity + subject ~ variable, mean)
 ```
 5.2 Save data into .csv file
 ```
-write.table(finaltable, file="wearabletidydataset.csv")
+write.table(finaltable, file="finaltidydataset.txt", row.names = F)
 ```
