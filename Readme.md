@@ -23,7 +23,8 @@ The data used is from the site:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 
-## 0. Get the land ready  :green_apple:
+## Describing the script :green_apple:
+### 0. Get the land ready  
 0.1 Install packages and libraries
 ```
 install.packages("downloader")
@@ -31,7 +32,9 @@ library(downloader)
 library(dplyr)    # Data frames tool
 library(reshape2) # Help with melt and cast of data frames
 ```
-0.2 Set working directory. Download and unzip files in "wearable" folder
+0.2 Set working directory. Download and unzip files in "wearable" folder.
+
+A datacleaningfinalproject folder is created, and is set as the working directory. This is where the raw data is downloaded.
 ```
 if(!exists("~/datacleaningfinalproject")){dir.create("~/datacleaningfinalproject")}
 setwd("~/datacleaningfinalproject")
@@ -40,19 +43,23 @@ download(url = myurl, destfile="./wearable.zip")
 unzip("./wearable.zip")
 ```
 
-## 1. Merge the training and the test sets to create one data set.
-1.1 Reading the Test and Train sets
+### 1. Merge the training and the test sets to create one data set.
+1.1 Reading the Test and Train sets.
 
+These two sets are read into dataframes.
 ```
 testset <- read.table("./wearable/test/X_test.txt", stringsAsFactors = F)
 trainset <- read.table("./wearable/train/X_train.txt", stringsAsFactors = F)
 ```
-1.2 Binding both sets
+1.2 Binding both sets.
+
 Take into account that first comes Test, second Train
 ```
 testandtrainset <- rbind(testset,trainset)
 ```
-Getting the names of the features columns, and the mask for the mean and standard deviation data
+Getting the names of the features columns, and the mask for the mean and standard deviation data.
+
+The names of the columns are read in order to filter only those which are mean or standard deviation related.
 ```
 features <- read.table("./wearable/features.txt", stringsAsFactors = F)
 featureslist <- features[,2]
@@ -65,7 +72,9 @@ featureslist <- featureslist[featuresmask]
 testandtrainset <- select(testandtrainset, featuresmask)
 ```
 ## 3. Uses descriptive activity names to name the activities in the data set
-3.1 Adding descriptive names to the columns
+3.1 Adding descriptive names to the columns.
+
+The names are taken from wearable\features.txt
 ```
 colnames(testandtrainset) <- featureslist
 ```
@@ -110,12 +119,15 @@ write.table(finaltable, file="wearabletidydataset.csv")
 
 
 Basic writing and formatting syntax on GitHub
+
 https://help.github.com/articles/basic-writing-and-formatting-syntax/
 
 Getting and Cleaning the Assignment. David Hood's Blog
+
 https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/
 
 Emoji Cheat Sheet
+
 http://www.webpagefx.com/tools/emoji-cheat-sheet/
 
 http://stackoverflow.com/
