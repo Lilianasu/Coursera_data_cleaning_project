@@ -7,24 +7,24 @@ Liliana Hirugame
 
 September, 2016
 
-## Description of the project  :pushpin:
-
-The components of this Course's Final Project are the next
-
-1) finaltidydataset.csv 
-  A tidy data set 
-2) A link to a Github repository with your script for performing the analysis
-3) CodeBook.md
-   A code book that describes the variables, the data, and any transformations or work performed to clean up the data. 
-
 The intention of the run_analysis.R script is to prepare tidy data that can be used for later analysis.
 
 The data used is from the site: 
+
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
+## Description of the project  :pushpin:
 
-## Describing the script :green_apple:
-### 0. Get the land ready  
+The components of this Course's Final Project are as follows.
+
+1) CodeBook.md
+   A code book that describes the variables, the structure of the finaltidydataset.csv, and any transformations or work performed to clean up the data. 
+2) finaltidydataset.csv 
+  A tidy data set as described in the CodeBook, in csv format.
+3) A script for performing the analysis
+
+## Description of the script :green_apple:
+### 0. Getting the land ready  
 0.1 Install packages and libraries
 ```
 install.packages("downloader")
@@ -66,12 +66,12 @@ featureslist <- features[,2]
 featuresmask <- grep("mean\\(\\)|std\\(\\)", featureslist)
 featureslist <- featureslist[featuresmask]
 ```
-## 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+### 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 2.1 Delimiting the testandtrainset set to the mean and standard deviation data
 ```
 testandtrainset <- select(testandtrainset, featuresmask)
 ```
-## 3. Uses descriptive activity names to name the activities in the data set
+### 3. Uses descriptive activity names to name the activities in the data set
 3.1 Adding descriptive names to the columns.
 
 The names are taken from wearable\features.txt
@@ -97,14 +97,14 @@ testsubjects <- mutate(testsubjects, V1=as.factor(V1) )
 trainsubjects <- read.table("./wearable/train/subject_train.txt", stringsAsFactors = F)
 trainsubjects <- mutate(trainsubjects, V1=as.factor(V1) )
 ```
-## 4.Appropriately labels the data set with descriptive variable names.
+### 4.Appropriately labels the data set with descriptive variable names.
 4.1 First comes Test, second Train
 ```
 activities <- rbind(testactivities,trainactivities)
 subjects <- rbind(testsubjects,trainsubjects)
 testandtrainset <- mutate(testandtrainset, activity=activities[,1], subject=subjects[,1])
 ```
-## 5. From the data set in step 4, creates a second, independent tidy data set with 
+### 5. From the data set in step 4, creates a second, independent tidy data set with 
 5.1 The average of each variable for each activity and each subject.
 ```
 ttmolten <- melt(testandtrainset, id=c("activity", "subject"), na.rm = TRUE)
@@ -126,9 +126,15 @@ Getting and Cleaning the Assignment. David Hood's Blog
 
 https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/
 
+John Schroeder's Codebook reference
+
+https://rstudio-pubs-static.s3.amazonaws.com/55939_3a149c3034c4469ca938b3d9ce964546.html
+
 Emoji Cheat Sheet
 
 http://www.webpagefx.com/tools/emoji-cheat-sheet/
+
+Others
 
 http://stackoverflow.com/
 
