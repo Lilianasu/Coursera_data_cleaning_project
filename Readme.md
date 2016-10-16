@@ -101,10 +101,24 @@ testandtrainset <- mutate(testandtrainset, activity=activities[,1], subject=subj
 ttmolten <- melt(testandtrainset, id=c("activity", "subject"), na.rm = TRUE)
 finaltable <- dcast(ttmolten, formula = activity + subject ~ variable, mean)
 ```
-
+5.2 Save data into .csv file
+```
+write.table(finaltable, file="wearabletidydataset.csv")
+```
 
 ## References   :books:
 
 
 Basic writing and formatting syntax on GitHub
 https://help.github.com/articles/basic-writing-and-formatting-syntax/
+
+Getting and Cleaning the Assignment. David Hood's Blog
+https://thoughtfulbloke.wordpress.com/2015/09/09/getting-and-cleaning-the-assignment/
+
+Emoji Cheat Sheet
+http://www.webpagefx.com/tools/emoji-cheat-sheet/
+
+http://stackoverflow.com/
+
+https://www.r-bloggers.com/
+
